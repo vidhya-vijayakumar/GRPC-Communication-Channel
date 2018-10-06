@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package grpc;
+
+message Empty {}
+
+// Variables for ChatNote
+message ChatNote {
+    string name = 1;
+    string message = 2;
+    string receiver = 3;
+}
+
+service ChatServer {
+    rpc ChatStream (ChatNote) returns (stream ChatNote);
+    rpc SendNote (ChatNote) returns (ChatNote);
+}
+
